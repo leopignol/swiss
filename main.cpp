@@ -26,9 +26,6 @@ bool sortContestants(const Contestant &left, const Contestant &right){
 }
 
 int main() {
-    // Fixes random with seed
-    srand(0);
-
     size_t longestName = 0;
     // Initialize game with contestants
     vector<Contestant> contestants;
@@ -74,7 +71,16 @@ int main() {
                 exit(1);
             }
 
-            HT result = (rand() % 2) ? HT::HEADS : HT::TAILS;
+            string inputResult = input();
+            HT result;
+            if      (inputResult == "heads") result = HT::HEADS;
+            else if (inputResult == "tails") result = HT::TAILS;
+            else {
+                cerr
+                    << "Expected \"heads\" or \"tails\", got \""
+                    << inputResult << "\"." << endl;
+                exit(1);
+            }
 
             bool victory = (guess == result);
             if (inputGuess == "edge") victory = false;
@@ -146,7 +152,16 @@ int main() {
                     exit(1);
                 }
 
-                HT result = (rand() % 3) ? HT::HEADS : HT::TAILS;
+                string inputResult = input();
+                HT result;
+                if      (inputResult == "heads") result = HT::HEADS;
+                else if (inputResult == "tails") result = HT::TAILS;
+                else {
+                    cerr
+                        << "Expected \"heads\" or \"tails\", got \""
+                        << inputResult << "\"." << endl;
+                    exit(1);
+                }
 
                 bool victory = (guess == result);
 
