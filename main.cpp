@@ -11,20 +11,6 @@
 
 using namespace std;
 
-string input(bool keepCase){
-    string val;
-    while (val.empty() || val[0] == '#')
-        getline(cin, val);
-    if (!keepCase)
-        for (char &c : val)
-            c = tolower(c);
-    return val;
-}
-
-bool sortContestants(const Contestant &left, const Contestant &right){
-    return left.victories > right.victories;
-}
-
 int main() {
     size_t longestName = 0;
     // Initialize game with contestants
@@ -54,9 +40,6 @@ int main() {
             Contestant &contestant = versus.first;
             Contestant &opponent = versus.second;
 
-            uint8_t contestantScore = 0;
-            uint8_t opponentScore = 0;
-
             /*        -------- HEADS OR TAILS --------        */
 
             // Contestant guess, opponent takes opposite
@@ -83,21 +66,19 @@ int main() {
             }
 
             bool victory = (guess == result);
-            if (inputGuess == "edge") victory = false;
 
             // Update scores
             if (victory)
-                ++contestantScore;
-            else ++opponentScore;
-
-
+                ++contestant.victories;
+            else
+                ++opponent.victories;
 
             /*        -------- ROCK PAPER SCISSORS --------        */
 
             RPS guessC = RPS::ROCK;
             RPS guessO = RPS::ROCK;
 
-            while (guessC == guessO){
+            while (guessC == guessO) {
                 string inputGuessC = input();
                 string inputGuessO = input();
 
@@ -131,49 +112,40 @@ int main() {
 
             // Update scores
             if (victory)
-                 ++contestantScore;
-            else ++opponentScore;
-
+                ++contestant.victories;
+            else
+                ++opponent.victories;
 
             /*        -------- HEADS OR TAILS (RIGGED) --------        */
-            // Same as first mini game but rigged,
-            // heads is twice as probable
 
-            if (contestantScore == opponentScore) {
-                // Opponent guess, contestant takes opposite
-                string inputGuess = input();
-                HT guess;
-                if      (inputGuess == "heads") guess = HT::HEADS;
-                else if (inputGuess == "tails") guess = HT::TAILS;
-                else {
-                    cerr
-                        << "R Expected \"heads\" or \"tails\", got \""
-                        << inputGuess << "\"." << endl;
-                    exit(1);
-                }
-
-                string inputResult = input();
-                HT result;
-                if      (inputResult == "heads") result = HT::HEADS;
-                else if (inputResult == "tails") result = HT::TAILS;
-                else {
-                    cerr
-                        << "Expected \"heads\" or \"tails\", got \""
-                        << inputResult << "\"." << endl;
-                    exit(1);
-                }
-
-                bool victory = (guess == result);
-
-                // Update scores
-                if (victory)
-                    ++opponentScore;
-                else ++contestantScore;
+            // Opponent guess, contestant takes opposite
+            inputGuess = input();
+            if (inputGuess == "heads")
+                guess = HT::HEADS;
+            else if (inputGuess == "tails")
+                guess = HT::TAILS;
+            else {
+                cerr << "R Expected \"heads\" or \"tails\", got \"" << inputGuess << "\"." << endl;
+                exit(1);
             }
 
-            if (contestantScore > opponentScore)
+            inputResult = input();
+            if (inputResult == "heads")
+                result = HT::HEADS;
+            else if (inputResult == "tails")
+                result = HT::TAILS;
+            else {
+                cerr << "Expected \"heads\" or \"tails\", got \"" << inputResult << "\"." << endl;
+                exit(1);
+            }
+
+            victory = (guess == result);
+
+            // Update scores
+            if (victory)
+                ++opponent.victories;
+            else
                 ++contestant.victories;
-            else ++opponent.victories;
         }
 
         versuses.clear();

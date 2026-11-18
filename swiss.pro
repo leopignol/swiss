@@ -16,9 +16,8 @@ COPIES += \
        oracle_files
 
 DISTFILES += \
-          2.in \
           README.md \
           1.in \
-          1.oracle \
           2.in \
+          1.oracle \
           2.oracle

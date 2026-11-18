@@ -21,192 +21,176 @@ Martin Nevot
 # Alterne entre:
 # Pile ou face: Guess du joueur 1 (le joueur 2 prend forcément l'opposé)
 # Pile ou face: Résultat
-# Tant que les actions des joueurs sont identiques:
-#   Pierre feuille ciseaux: Action du joueur 1
-#   Pierre feuille ciseaux: Action du joueur 2
+# Pierre feuille ciseaux: Action du joueur 1
+# Pierre feuille ciseaux: Action du joueur 2
 # Si le score est identique:
 #   Pile ou face truqué: Guess du joueur 2 (le joueur 1 prend forcément l'opposé)
 #   Pile ou face truqué: Résultat
 
-## Tour 1:
-tails
-tails
-paper
-paper
-rock
-paper
-# 1-1, donc troisième jeu
-heads
-heads
 
+## Tour 1
 tails
 heads
-rock
-paper
-# 0-2, donc pas de troisième jeu
-
-heads
-heads
-rock
-rock
-paper
-rock
-# 2-0, donc pas de troisième jeu
-
-tails
-tails
-paper
-paper
-paper
-paper
-rock
-rock
-paper
 paper
 scissors
-scissors
-scissors
-scissors
-paper
-scissors
-# 1-1, donc troisième jeu
 heads
 tails
 
-
-## Tour 2:
 heads
-heads
-paper
-paper
+tails
 scissors
 rock
-# 1-1, donc troisième jeu
 tails
 heads
 
-tails
-tails
-paper
-paper
-scissors
-scissors
-scissors
-scissors
-paper
-paper
-paper
-paper
-scissors
-paper
-# 2-0, donc pas de troisième jeu
-
-tails
+heads
 tails
 paper
 paper
 paper
 rock
-# 2-0, donc pas de troisième jeu
-
-tails
 heads
-paper
-paper
-paper
-rock
-# 1-1, donc troisième jeu
 tails
-heads
 
-
-## Tour 3:
 heads
 heads
 rock
-scissors
-# 2-0, donc pas de troisième jeu
-
-tails
-tails
-paper
 rock
-# 2-0, donc pas de troisième jeu
+rock
+paper
+heads
+tails
 
+
+## Tour 2
 heads
-heads
+tails
 scissors
 paper
-# 2-0, donc pas de troisième jeu
+heads
+tails
 
 tails
 tails
 scissors
 paper
-# 2-0, donc pas de troisième jeu
-
-
-## Tour 4:
+tails
 heads
-heads
-rock
-rock
-rock
-scissors
-# 2-0, donc pas de troisième jeu
-
-heads
-heads
-rock
-scissors
-# 2-0, donc pas de troisième jeu
 
 tails
 heads
+scissors
 paper
+tails
+heads
+
+tails
+heads
 paper
 paper
 scissors
-# 0-2, donc pas de troisième jeu
-
-heads
-tails
-rock
-paper
-# 0-2, donc pas de troisième jeu
-
-
-## Tour 5:
-heads
-tails
-rock
-rock
-paper
-scissors
-# 0-2, donc pas de troisième jeu
-
-heads
-tails
-paper
-paper
 scissors
 rock
-# 0-2, donc pas de troisième jeu
+scissors
+tails
+tails
+
+
+## Tour 3
+heads
+tails
+scissors
+rock
+tails
+tails
 
 tails
-tails
+heads
+rock
+rock
+paper
 paper
 paper
 scissors
+heads
+heads
+
+tails
+tails
+scissors
 paper
-# 2-0, donc pas de troisième jeu
+tails
+heads
+
+heads
+heads
+rock
+scissors
+tails
+heads
+
+
+## Tour 4
+heads
+tails
+scissors
+scissors
+rock
+paper
+tails
+heads
+
+tails
+heads
+scissors
+scissors
+rock
+paper
+tails
+tails
 
 heads
 tails
-rock
-rock
 paper
 rock
-# 1-1, donc troisième jeu
+heads
+heads
+
+tails
+heads
+rock
+paper
+tails
+tails
+
+
+## Tour 5
+tails
+tails
+paper
+rock
+heads
+heads
+
+heads
+heads
+scissors
+scissors
+scissors
+paper
+tails
+tails
+
+heads
+heads
+paper
+rock
+heads
+heads
+
+heads
+tails
+scissors
+paper
 heads
 heads
