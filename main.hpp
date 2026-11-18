@@ -1,37 +1,28 @@
-#include <algorithm>
 #include <cctype>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <string>
 
-#pragma once
+enum HT { HEADS, TAILS };
 
-enum HT {
-    HEADS, TAILS
-};
-
-enum RPS {
-    ROCK, PAPER, SCISSORS
-};
+enum RPS { ROCK, PAPER, SCISSORS };
 
 struct Contestant {
-    std::string name;
-    uint8_t victories = 0;
+  std::string name;
+  uint8_t victories = 0;
 };
 
-std::string input(bool keepCase = false)
-{
-    std::string val;
-    while (val.empty() || val[0] == '#')
-        getline(std::cin, val);
-    if (!keepCase)
-        for (char &c : val)
-            c = tolower(c);
-    return val;
+std::string input(bool keepCase = false) {
+  std::string val;
+  while (val.empty() || val[0] == '#')
+    getline(std::cin, val);
+  if (!keepCase)
+    for (char &c : val)
+      c = tolower(c);
+  return val;
 }
 
-bool sortContestants(const Contestant &left, const Contestant &right)
-{
-    return left.victories > right.victories;
+bool sortContestants(const Contestant &left, const Contestant &right) {
+  return left.victories > right.victories;
 }
