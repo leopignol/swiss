@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+#ifndef __SWISS_HPP
+#define __SWISS_HPP
+
 enum HT { HEADS, TAILS };
 
 enum RPS { ROCK, PAPER, SCISSORS };
@@ -26,3 +29,5 @@ std::string input(bool keepCase = false) {
 bool sortContestants(const Contestant &left, const Contestant &right) {
   return left.victories > right.victories;
 }
+
+#endif
